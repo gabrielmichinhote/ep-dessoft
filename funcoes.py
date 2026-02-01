@@ -8,7 +8,6 @@ def cria_pecas():
     random.shuffle(pecas)
     return pecas
 
-
 def inicia_jogo(num_jogadores, pecas):
     jogo = {
         'jogadores': {},
@@ -23,3 +22,9 @@ def inicia_jogo(num_jogadores, pecas):
     total_distribuidas = num_jogadores * pecas_por_jogador
     jogo['monte'] = pecas[total_distribuidas:]
     return jogo
+
+def verifica_ganhador(jogadores):
+    for num_jogador, pecas in jogadores.items():
+        if len(pecas) == 0:
+            return num_jogador
+    return -1
