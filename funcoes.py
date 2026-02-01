@@ -34,3 +34,14 @@ def conta_pontos(pecas):
     for peca in pecas:
         total += peca[0] + peca[1]
     return total
+
+def posicoes_possiveis(mesa, pecas):
+    if len(mesa) == 0:
+        return list(range(len(pecas)))
+    ponta_esquerda = mesa[0][0]
+    ponta_direita = mesa[-1][1]
+    posicoes = []
+    for i, peca in enumerate(pecas):
+        if ponta_esquerda in peca or ponta_direita in peca:
+            posicoes.append(i)
+    return posicoes
